@@ -3,7 +3,7 @@
 @endphp
 
 <header class="mb-5">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top ">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">

@@ -14,7 +14,7 @@
 @endsection
 <style>
     .card {
-        width: 50%;
+        width: 30%;
         margin: 0 auto;
         padding: 20px;
         border: 1px solid black;
@@ -33,5 +33,33 @@
 
     a:hover {
         text-decoration: none;
+    }
+
+    a:visited {
+        color: black;
+    }
+
+    a:link {
+        color: black;
+    }
+
+    a:active {
+        color: black;
+    }
+
+    a:focus {
+        color: black;
+    }
+
+    a:active {
+        color: black;
+    }
+
+    a:visited:hover {
+        color: black;
+    }
+
+    a:link:hover {
+        color: black;
     }
 </style>
