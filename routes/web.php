@@ -18,4 +18,4 @@ Route::get('/', [PageController::class, 'index'])->name('home');
 
 Route::get('/nuova-pagina', [PageController::class, 'nuovaPagina'])->name('nuovapagina');
 
-Route::get('/comics', [ComicsController::class, 'index'])->name('comics.index');
+Route::resource('comics', ComicsController::class);
