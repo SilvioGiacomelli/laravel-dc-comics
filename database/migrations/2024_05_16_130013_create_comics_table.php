@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('type');
             $table->json('artists');
             $table->json('writers');
+            $table->string('slug')->unique();
             $table->timestamps();
         });
     }
