@@ -1,65 +1,86 @@
 @extends('layout.main')
 @section('content')
-    <div class="card">
+    <div class="container">
+
         <h1>{{ $comic->title }}</h1>
-        <p>{{ $comic->description }}</p>
-        <p>{{ $comic->price }}</p>
-        <p>{{ $comic->series }}</p>
-        <p>{{ $comic->sale_date }}</p>
-        <p>{{ $comic->type }}</p>
-        <img src="{{ $comic->thumb }}" alt="Comic Thumbnail">
-        <p>{{ $comic->slug }}</p>
-        <a href="{{ route('comics.index') }}">Torna alla lista dei fumetti</a>
+
+        <div class="row">
+            <div class="col left">
+                <img src="{{ $comic->thumb }}" alt="Comic Thumbnail">
+            </div>
+            <div class="col right">
+                <h2>{{ $comic->title }}</h2>
+                <p>{{ $comic->description }}</p>
+                <p>{{ $comic->price }}</p>
+                <p>{{ $comic->series }}</p>
+                <p>{{ $comic->sale_date }}</p>
+                <p>{{ $comic->type }}</p>
+                <p>{{ $comic->slug }}</p>
+                <a href="{{ route('comics.index') }}">Torna alla lista dei fumetti</a>
+            </div>
+        </div>
     </div>
 @endsection
 <style>
-    .card {
-        width: 30%;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid black;
-        border-radius: 5px;
+    img {
+        width: 75%;
     }
 
-    img {
-        width: 100%;
+    h2 {
+        color: red;
+    }
+
+    p {
+        color: blue;
     }
 
     a {
-        display: block;
-        margin-top: 20px;
-        text-align: center;
+        color: green;
     }
 
     a:hover {
-        text-decoration: none;
+        color: red;
     }
 
-    a:visited {
-        color: black;
+    .row {
+        display: flex;
+        justify-content: space-between;
     }
 
-    a:link {
-        color: black;
+    .left {
+        width: 50%;
     }
 
-    a:active {
-        color: black;
+    .right {
+        width: 50%;
     }
 
-    a:focus {
-        color: black;
+    .container {
+        margin-top: 50px;
     }
 
-    a:active {
-        color: black;
+    .container h1 {
+        color: red;
     }
 
-    a:visited:hover {
-        color: black;
+    .container p {
+        color: blue;
     }
 
-    a:link:hover {
-        color: black;
+    .container a {
+        color: green;
+    }
+
+    .container a:hover {
+        color: red;
+    }
+
+    .container img {
+        width: 75%;
+    }
+
+    .container .row {
+        display: flex;
+        justify-content: space-between;
     }
 </style>

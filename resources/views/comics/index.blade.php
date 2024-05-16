@@ -17,7 +17,7 @@
                     <td>{{ $comic->series }}</td>
                     <td>{{ $comic->price }}</td>
                     <td>
-                        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-success "><i
+                        <a href="{{ route('comics.show', $comic->id) }}" class="btn btn-success"><i
                                 class="fa-solid fa-eye"></i></a>
                     </td>
                     <td>
@@ -28,21 +28,53 @@
                     </td>
                 </tr>
             @empty
-                <h2>Nessun prodotto trovato</h2>
+                <tr>
+                    <td colspan="3">Nessun prodotto trovato</td>
+                </tr>
             @endforelse
         </tbody>
-    @endsection
+    </table>
+@endsection
 
+@section('styles')
     <style>
-        .fa-eye {
-            color: white;
-        }
-
-        .fa-pen {
-            color: white;
-        }
-
+        .fa-eye,
+        .fa-pen,
         .fa-trash {
             color: white;
         }
+
+        .btn-success {
+            background-color: green;
+        }
+
+        .btn-warning {
+            background-color: orange;
+        }
+
+        .btn-danger {
+            background-color: red;
+        }
+
+        .table {
+            width: 100%;
+        }
+
+        .table tr th {
+            background-color: black;
+            color: white;
+        }
+
+        .table tr td {
+            background-color: lightgrey;
+        }
+
+        .table tr td a {
+            color: white;
+        }
+
+        .table tr td a i {
+            font-size: 20px;
+        }
     </style>
+@endsection
