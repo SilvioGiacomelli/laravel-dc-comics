@@ -35,11 +35,11 @@
             </div>
             <div class="mb-3">
                 <label for="artists" class="form-label">Artists</label>
-                <input name="artists" type="text" class="form-control" id="artists" placeholder="name@example.com">
+                <input name="artists" type="text" class="form-control" id="artists" placeholder="Insert Artists">
             </div>
             <div class="mb-3">
                 <label for="writers" class="form-label">Writers</label>
-                <input name="writers" type="text" class="form-control" id="writers" placeholder="name@example.com">
+                <input name="writers" type="text" class="form-control" id="writers" placeholder="Insert Writers">
             </div>
             <button type="submit" class="btn btn-primary">Submit your comic</button>
             <button type="reset" class="btn btn-warning">Reset</button>

@@ -16,6 +16,8 @@
                 <p>{{ $comic->sale_date }}</p>
                 <p>{{ $comic->type }}</p>
                 <p>{{ $comic->slug }}</p>
+                <p>{{ $comic->artists }}</p>
+                <p>{{ $comic->writers }}</p>
                 <a href="{{ route('comics.index') }}">Torna alla lista dei fumetti</a>
             </div>
         </div>
