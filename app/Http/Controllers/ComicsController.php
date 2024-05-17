@@ -43,8 +43,8 @@ class ComicsController extends Controller
         $newProduct->series = $data['series'];
         $newProduct->sale_date = $data['sale_date'];
         $newProduct->type = $data['type'];
-        $newProduct->artists = json_encode($data['artists']);
-        $newProduct->writers = json_encode($data['writers']);
+        $newProduct->artists = $data['artists'];
+        $newProduct->writers = $data['writers'];
         $newProduct->slug = Helper::generateSlug($newProduct->title, new Comic());
         $newProduct->save();
         return redirect()->route('comics.show', $newProduct);
@@ -61,24 +61,40 @@ class ComicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Comic $comic)
     {
-        //
+        return view("comics.edit", compact('comic'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $comic)
     {
-        //
+        $data = $request->except('_token', '_method');
+
+        //genero lo slug solo se il titolo è diverso
+        if ($data['title'] === $comic->title) {
+            $data['slug'] = $comic->slug;
+        } else {
+            $data['slug'] = Helper::generateSlug($data['title'], new Comic());
+        }
+
+        //aggiorno il comic
+        $comic
+            ->fill($data);
+        $comic->update($data);
+
+        return redirect()->route('comics.show', $comic);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+
+        return redirect()->route('comics.index')->with('deleted', $comic->title);
     }
 }

@@ -20,8 +20,8 @@ class ComicTableSeeder extends Seeder
             $newProduct->series = $product['series'];
             $newProduct->sale_date = $product['sale_date'];
             $newProduct->type = $product['type'];
-            $newProduct->artists = json_encode($product['artists']);
-            $newProduct->writers = json_encode($product['writers']);
+            $newProduct->artists = implode(",", $product['artists']);
+            $newProduct->writers = implode(",", $product['writers']);
             $newProduct->slug = Helper::generateSlug($newProduct->title, new Comic());
             $newProduct->save();
         }
