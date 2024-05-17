@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Comic;
 
+use App\Functions\Helper;
+
 class ComicsController extends Controller
 {
     /**
@@ -30,7 +32,22 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //ricevo da create i dati nel nuovo comic
+        $data = $request->all();
+        //creo un nuovo oggetto comic
+        $newProduct = new Comic();
+        $newProduct->title = $data['title'];
+        $newProduct->description = $data['description'];
+        $newProduct->thumb = $data['thumb'];
+        $newProduct->price = $data['price'];
+        $newProduct->series = $data['series'];
+        $newProduct->sale_date = $data['sale_date'];
+        $newProduct->type = $data['type'];
+        $newProduct->artists = json_encode($data['artists']);
+        $newProduct->writers = json_encode($data['writers']);
+        $newProduct->slug = Helper::generateSlug($newProduct->title, new Comic());
+        $newProduct->save();
+        return redirect()->route('comics.show', $newProduct);
     }
 
     /**
