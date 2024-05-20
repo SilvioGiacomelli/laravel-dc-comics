@@ -1,6 +1,6 @@
 @extends('layout.main')
 @section('content')
-    @if ($errors->any())
+    {{-- @if ($errors->any())
         <div class="alert alert-danger" role="alert">
             <ul>
                 @foreach ($errors->all() as $error)
@@ -8,7 +8,7 @@
                 @endforeach
             </ul>
         </div>
-    @endif
+    @endif --}}
     <div class="container">
         <h1>Nuovo fumetto</h1>
         <form action="{{ route('comics.store') }}" method="POST">
@@ -17,7 +17,7 @@
                 <label for="title" class="form-label">Title</label>
                 <input name="title" type="title" class="form-control @error('title') is-invalid @enderror" id="title"
                     placeholder="insert Title" value="{{ old('title') }}">
-                @error('titolo')
+                @error('title')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -25,7 +25,7 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea name="description" class="form-control @error('title') is-invalid @enderror" id="description" rows="3"
                     value="{{ old('description') }}"></textarea>
-                @error('titolo')
+                @error('description')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -33,7 +33,7 @@
                 <label for="thumb" class="form-label">Image</label>
                 <input name="thumb" type="text" class="form-control @error('title') is-invalid @enderror"
                     id="thumb" placeholder="Insert Img" value="{{ old('thumb') }}">
-                @error('titolo')
+                @error('thumb')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -41,7 +41,7 @@
                 <label for="price" class="form-label">Price</label>
                 <input name="price" type="text" class="form-control @error('title') is-invalid @enderror"
                     id="exampleFormControlInput1" placeholder="Insert price" value="{{ old('price') }}">
-                @error('titolo')
+                @error('price')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -49,7 +49,7 @@
                 <label for="series" class="form-label">Series</label>
                 <input name="series" type="text" class="form-control @error('title') is-invalid @enderror"
                     id="series" placeholder="Insert series" value="{{ old('series') }}">
-                @error('titolo')
+                @error('series')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -57,7 +57,7 @@
                 <label for="sale_date" class="form-label">Data di vendita</label>
                 <input name="sale_date" type="date" class="form-control @error('title') is-invalid @enderror"
                     id="sale_date" placeholder="Choose a Date" value="{{ old('sale_date') }}">
-                @error('titolo')
+                @error('sale_date')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -65,7 +65,7 @@
                 <label for="type" class="form-label">Type</label>
                 <input name="type" type="text" class="form-control @error('title') is-invalid @enderror"
                     id="type" placeholder="Insert a type" value="{{ old('type') }}">
-                @error('titolo')
+                @error('type')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -73,7 +73,7 @@
                 <label for="artists" class="form-label">Artists</label>
                 <input name="artists" type="text" class="form-control @error('title') is-invalid @enderror"
                     id="artists" placeholder="Insert Artists" value="{{ old('artists') }}">
-                @error('titolo')
+                @error('artists')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
@@ -81,6 +81,9 @@
                 <label for="writers" class="form-label">Writers</label>
                 <input name="writers" type="text" class="form-control" id="writers" placeholder="Insert Writers"
                     value="{{ old('writers') }}">
+                @error('writers')
+                    <small class="text-danger">{{ $message }}</small>
+                @enderror
 
             </div>
             <button type="submit" class="btn btn-primary">Submit your comic</button>
