@@ -8,6 +8,8 @@ use App\Models\Comic;
 
 use App\Functions\Helper;
 
+use App\Http\Requests\ComicRequest;
+
 //Questo controller gestisce le operazioni CRUD sui comics
 
 class ComicsController extends Controller
@@ -32,20 +34,8 @@ class ComicsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ComicRequest $request)
     {
-        //valido i dati ricevuti dal form
-        $request->validate([
-            'title' => 'required|max:255',
-            'description' => 'required',
-            'thumb' => 'required',
-            'price' => 'required|numeric',
-            'series' => 'required',
-            'sale_date' => 'required',
-            'type' => 'required',
-            'artists' => 'required',
-            'writers' => 'required',
-        ]);
         //ricevo da create i dati nel nuovo comic
         $data = $request->all();
         //creo un nuovo oggetto comic

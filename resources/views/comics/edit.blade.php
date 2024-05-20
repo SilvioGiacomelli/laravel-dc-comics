@@ -1,5 +1,14 @@
 @extends('layout.main')
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <div class="container">
         <h1>{{ $comic->title }}</h1>
         <form action="{{ route('comics.update', $comic) }}" method="POST">
