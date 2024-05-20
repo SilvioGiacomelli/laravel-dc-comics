@@ -14,7 +14,9 @@ use App\Http\Controllers\ComicsController;
 |
 */
 
-Route::get('/', [PageController::class, 'index'])->name('home');
+//Una route è un endpoint di un'applicazione, un URL che l'applicazione può gestire.
+
+Route::get('/', [PageController::class, 'index'])->name('home'); //In questa route, il metodo get() accetta due parametri: il primo è l'URL, il secondo è un array associativo con il nome del controller e il metodo che gestirà la route. Il metodo name() assegna un nome alla route.
 
 Route::get('/nuova-pagina', [PageController::class, 'nuovaPagina'])->name('nuovapagina');
 

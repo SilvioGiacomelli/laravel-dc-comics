@@ -1,5 +1,5 @@
 <?php
-
+//use serve per importare le classi e i namespace
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 

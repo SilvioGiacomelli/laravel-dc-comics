@@ -8,6 +8,8 @@ use App\Models\Comic;
 
 use App\Functions\Helper;
 
+//Questo controller gestisce le operazioni CRUD sui comics
+
 class ComicsController extends Controller
 {
     /**
@@ -32,6 +34,18 @@ class ComicsController extends Controller
      */
     public function store(Request $request)
     {
+        //valido i dati ricevuti dal form
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required',
+            'thumb' => 'required',
+            'price' => 'required|numeric',
+            'series' => 'required',
+            'sale_date' => 'required',
+            'type' => 'required',
+            'artists' => 'required',
+            'writers' => 'required',
+        ]);
         //ricevo da create i dati nel nuovo comic
         $data = $request->all();
         //creo un nuovo oggetto comic
@@ -55,13 +69,13 @@ class ComicsController extends Controller
      */
     public function show(Comic $comic)
     {
-        return view('comics.show', compact('comic'));
+        return view('comics.show', compact('comic')); //il compact vuole dire che passo alla view la variabile $comic e bisgona inserirlo quando si chiama la view
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Comic $comic)
+    public function edit(Comic $comic) //il primo Comic si rifà al model, il secondo comic è la variabile
     {
         return view("comics.edit", compact('comic'));
     }
@@ -82,7 +96,7 @@ class ComicsController extends Controller
 
         //aggiorno il comic
         $comic
-            ->fill($data);
+            ->fill($data); //fill è un metodo che riempie i campi del model con i dati passati in questo caso con $data
         $comic->update($data);
 
         return redirect()->route('comics.show', $comic);

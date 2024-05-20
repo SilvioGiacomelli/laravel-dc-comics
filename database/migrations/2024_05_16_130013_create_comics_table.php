@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comics', function (Blueprint $table) {
+            //di seguito i campi della tabella comics
             $table->id();
             $table->string('title');
             $table->text('description');
